@@ -13,10 +13,13 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.ts"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ]
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
+    "@tailwindcss/postcss": "^4.1.18",
     "@types/date-fns": "^2.5.3",
     "@types/react-router-dom": "^5.3.3",
     "date-fns": "^4.1.0",
