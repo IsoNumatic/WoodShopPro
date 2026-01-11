@@ -1,3 +1,23 @@
+@theme {
+  --color-bg: #E0E5EC;
+  --color-fg: #3D4852;
+  --color-muted: #6B7280;
+  --color-accent: #6C63FF;
+  --color-accent-light: #8B84FF;
+  --color-teal: #38B2AC;
+  --font-family-display: "Plus Jakarta Sans", sans-serif;
+  --font-family-body: DM Sans, sans-serif;
+  --shadow-extruded: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5);
+  --shadow-extruded-hover: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255,0.6);
+  --shadow-extruded-small: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255,0.5);
+  --shadow-inset: inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5);
+  --shadow-inset-deep: inset 10px 10px 20px rgb(163,177,198,0.7), inset -10px -10px 20px rgba(255,255,255,0.6);
+  --shadow-inset-small: inset 3px 3px 6px rgb(163,177,198,0.6), inset -3px -3px 6px rgba(255,255,255,0.5);
+  --border-radius-card: 32px;
+  --border-radius-btn: 16px;
+  --border-radius-inner: 12px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
