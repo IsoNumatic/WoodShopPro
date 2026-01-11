@@ -122,6 +122,7 @@ export const useCreateProject = () => {
       createdAt: serverTimestamp() as any,
       updatedAt: serverTimestamp() as any,
       createdBy: currentUser.uid,
+      companyId: currentUser.companyId,
     };
 
     const ref = await addDoc(collection(db, `companies/${currentUser.companyId}/projects`), projectData);
