@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Onboarding from './pages/Onboarding';
 import Dashboard from './pages/Dashboard';
 import AdminPanel from './pages/AdminPanel';
+import ProjectDetail from './pages/ProjectDetail';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
           </Route>
           <Route element={<PrivateRoute adminOnly />}>
             <Route path="/admin" element={<AdminPanel />} />

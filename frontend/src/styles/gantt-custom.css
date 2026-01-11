@@ -1,0 +1,55 @@
+@import 'frappe-gantt/dist/frappe-gantt.css';
+
+.gantt .grid-header {
+  fill: #E0E5EC;
+  stroke: rgba(163,177,198,0.3);
+}
+
+.gantt .bar {
+  fill: #E0E5EC;
+  stroke: none;
+  rx: 8px; ry: 8px;
+  box-shadow: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255,0.5);
+  transition: all 300ms ease-out;
+}
+
+.gantt .bar-wrapper:hover .bar {
+  transform: translateY(-1px);
+  box-shadow: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255,0.6);
+}
+
+.gantt .bar-progress {
+  fill: #6C63FF;
+}
+
+.gantt .bar-label {
+  fill: #3D4852;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+}
+
+.gantt .handle {
+  fill: #6B7280;
+  stroke: none;
+}
+
+.gantt .arrow {
+  fill: #A0AEC0;
+}
+
+.gantt .today-highlight {
+  fill: rgba(108,99,255,0.1);
+}
+
+/* Custom classes from getPhaseClass */
+.gantt .very-high .bar { fill: #FF6B6B; }
+.gantt .high .bar { fill: #FFB74D; }
+.gantt .medium .bar { fill: #FFF176; }
+.gantt .low .bar { fill: #81D4FA; }
+.gantt .overdue .bar { fill: #EF5350; box-shadow: inset 3px 3px 6px rgba(0,0,0,0.2); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gantt { overflow-x: scroll; }
+  .gantt .bar-label { font-size: 10px; }
+}
