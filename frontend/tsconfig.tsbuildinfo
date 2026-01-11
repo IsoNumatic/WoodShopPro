@@ -1,0 +1,1 @@
+{"root":["./src/app.test.tsx","./src/app.tsx","./src/firebase.ts","./src/main.tsx","./src/setuptests.ts","./src/vite-env.d.ts","./src/components/privateroute.tsx","./src/contexts/authcontext.tsx","./src/pages/adminpanel.tsx","./src/pages/dashboard.tsx","./src/pages/login.tsx","./src/pages/onboarding.tsx","./src/types/user.types.ts"],"version":"5.9.3"}

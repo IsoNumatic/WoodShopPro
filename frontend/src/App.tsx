@@ -1,14 +1,30 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { PrivateRoute } from './components/PrivateRoute';
+import Login from './pages/Login';
+import Onboarding from './pages/Onboarding';
+import Dashboard from './pages/Dashboard';
+import AdminPanel from './pages/AdminPanel';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <Router>
-      <div className="container mx-auto p-4">
+    <AuthProvider>
+      <Router>
         <Routes>
-          <Route path="/" element={<div className="text-4xl font-extrabold">WoodShopPro Dashboard</div>} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+          </Route>
+          <Route element={<PrivateRoute adminOnly />}>
+            <Route path="/admin" element={<AdminPanel />} />
+          </Route>
         </Routes>
-      </div>
-    </Router>
+        <Toaster position="top-right" />
+      </Router>
+    </AuthProvider>
   );
 }
 
