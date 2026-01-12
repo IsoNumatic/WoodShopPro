@@ -1,33 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
 
 @theme {
-  --color-bg: #E0E5EC;
-  --color-fg: #3D4852;
-  --color-muted: #6B7280;
+  --color-bg-dark: #1A1B1E;
+  --color-bg-light: #FFFFFF;
+  --color-fg-dark: #E0E0E0;
+  --color-fg-light: #333333;
+  --color-muted-dark: #A0A0A0;
+  --color-muted-light: #666666;
   --color-accent: #6C63FF;
   --color-accent-light: #8B84FF;
   --color-teal: #38B2AC;
-  --font-family-display: "Plus Jakarta Sans", sans-serif;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --font-family-display: "Inter", sans-serif;
   --font-family-body: "DM Sans", sans-serif;
-  --shadow-extruded: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.5);
-  --shadow-extruded-hover: 12px 12px 20px rgb(163,177,198,0.7), -12px -12px 20px rgba(255,255,255,0.6);
-  --shadow-extruded-small: 5px 5px 10px rgb(163,177,198,0.6), -5px -5px 10px rgba(255,255,255,0.5);
-  --shadow-inset: inset 6px 6px 10px rgb(163,177,198,0.6), inset -6px -6px 10px rgba(255,255,255,0.5);
-  --shadow-inset-deep: inset 10px 10px 20px rgb(163,177,198,0.7), inset -10px -10px 20px rgba(255,255,255,0.6);
-  --shadow-inset-small: inset 3px 3px 6px rgb(163,177,198,0.6), inset -3px -3px 6px rgba(255,255,255,0.5);
-  --border-radius-card: 32px;
-  --border-radius-btn: 16px;
-  --border-radius-inner: 12px;
+  --shadow-card: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-card-hover: 0 8px 12px rgba(0,0,0,0.15);
+  --border-radius-card: 8px;
+  --border-radius-btn: 4px;
+  --border-radius-inner: 4px;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-bg text-fg min-h-screen antialiased;
-  background-color: #E0E5EC;
+  @apply bg-bg-dark text-fg-dark min-h-screen antialiased;
+  background-color: var(--color-bg-dark);
+  color: var(--color-fg-dark);
   font-family: var(--font-family-body);
+  font-weight: 400;
+}
+
+.dark {
+  @apply bg-bg-dark text-fg-dark;
+}
+
+.light {
+  @apply bg-bg-light text-fg-light;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,4 +52,22 @@ h1, h2, h3, h4, h5, h6 {
 
 button, .btn {
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite;
 }

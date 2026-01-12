@@ -2,8 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-// @ts-ignore
-import MockFirebase from 'firebase-mock';
 
 let app: any;
 let auth: any;
@@ -12,14 +10,28 @@ let storage: any;
 let googleProvider: any;
 
 if (import.meta.env.VITE_MOCK_MODE === 'true') {
-  const mockSdk = new MockFirebase();
-  app = mockSdk.app();
-  auth = mockSdk.auth();
-  db = mockSdk.firestore();
-  storage = mockSdk.storage();
-  googleProvider = new GoogleAuthProvider(); // Still needed for types, but not used
-  // Simulate auth
-  (auth as any).mockCurrentUser = { uid: 'mock-uid', email: 'test@example.com', companyId: 'mock-company' };
+  // Simple mock objects for compatibility
+  app = { name: 'mock-app' };
+  auth = {
+    onAuthStateChanged: () => () => {}, // Not used in mock mode
+    mockCurrentUser: { uid: 'mock-uid', email: 'test@example.com', companyId: 'mock-company' },
+  };
+  db = {
+    collection: () => ({
+      onSnapshot: () => {}, // Not used in mock mode
+      addDoc: () => Promise.resolve({ id: 'mock-id' }),
+      updateDoc: () => Promise.resolve(),
+      deleteDoc: () => Promise.resolve(),
+      getDoc: () => Promise.resolve({ exists: () => false, data: () => ({}) }),
+    }),
+    doc: () => ({
+      onSnapshot: () => {}, // Not used in mock mode
+      updateDoc: () => Promise.resolve(),
+      getDoc: () => Promise.resolve({ exists: () => false, data: () => ({}) }),
+    }),
+  };
+  storage = {};
+  googleProvider = {};
 } else {
   const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,

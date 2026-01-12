@@ -12,11 +12,6 @@ import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     <AuthProvider>
-      {import.meta.env.VITE_MOCK_MODE === 'true' && (
-        <div className="bg-yellow-100 text-yellow-800 text-center py-2 text-sm">
-          Running in Mock Mode – Data stored locally in browser
-        </div>
-      )}
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
